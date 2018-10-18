@@ -3,7 +3,7 @@ function dana_fw_ext_backups_demos($demos) {
     $demos_array = array(
 		'dana' => array(
 			'title' => esc_html__('Dana', 'dana'),
-			'screenshot' => 'http://bearsthemespremium.com/install/demo/dana/dana/screenshot.png',
+			'screenshot' => 'http://bearsthemespremium.com/install/demo/dana/dana/screenshot.jpg',
 			'preview_link' => 'http://bearsthemespremium.com/theme/dana/',
 		),
 		

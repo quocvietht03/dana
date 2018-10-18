@@ -106,6 +106,7 @@ if (!function_exists('dana_enqueue_scripts')) {
 		wp_register_script( 'dana-countdown', get_template_directory_uri().'/assets/vendors/countdown/jquery.countdown.min.js', array('jquery'), '', true);
 
 
+		wp_enqueue_style( 'dana-main_style', get_template_directory_uri().'/assets/css/main_style.css',  array(), false );
 		wp_enqueue_style( 'dana-style', get_template_directory_uri().'/style.css',  array(), false );
 		wp_enqueue_script( 'dana-main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '', true);
 

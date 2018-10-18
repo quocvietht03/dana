@@ -161,7 +161,7 @@ function dana_addLessStyle() {
 	if(isset($dana_options['less_design'])&&$dana_options['less_design']){
 		try {
 			$inputFile = get_template_directory().'/assets/css/less/style.less';
-			$outputFile = get_template_directory().'/style.css';
+			$outputFile = get_template_directory().'/assets/css/main_style.css';
 			dana_autoCompileLess($inputFile, $outputFile);
 		} catch (Exception $e) {
 			echo 'Caught exception: ', $e->getMessage(), "\n";
