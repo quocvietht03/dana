@@ -1,0 +1,1 @@
+[10-Apr-2018 15:27:44 America/Denver] PHP Fatal error:  Call to undefined function get_header() in /home/bearsthe/public_html/theme/wordpress/dana/wp-content/themes/dana/index.php on line 1

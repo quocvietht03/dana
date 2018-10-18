@@ -1,0 +1,114 @@
+.single-team{
+	.team{
+		.bt-thumb{
+			overflow: hidden;
+			margin-bottom: 30px;
+			border: 10px solid #ffffff;
+			box-shadow: 8px 0 17px fadeout(#686876, 80);
+			img{
+				.easing-animation-extra-long;
+				width: 100%;
+				height: auto;
+			}
+			&:hover{
+				img{
+					-webkit-transform: scale(1.2);
+					-ms-transform: scale(1.2);
+					transform: scale(1.2);
+				}
+			}
+		}
+		.bt-title{
+			font-size: 32px;
+			font-weight: 500;
+			line-height: 42px;
+			margin-bottom: 0;
+			text-transform: uppercase;
+		}
+		.bt-position{
+			position: relative;
+			font-style: italic;
+			color: @main-color;
+			margin-bottom: 30px;
+			padding-bottom: 15px;
+			&:after{
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 50px;
+				height: 2px;
+				background: @main-color;
+			}
+		}
+		.bt-content{
+			margin-bottom: 30px;
+		}
+		.bt-info, .bt-social{
+			h4{
+				position: relative;
+				font-size: 24px;
+				font-weight: 500;
+				line-height: 28px;
+				margin-bottom: 30px;
+				padding-bottom: 10px;
+				&:after{
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 50px;
+					height: 2px;
+					background: @main-color;
+				}
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+		}
+		.bt-info{
+			margin-bottom: 30px;
+			ul li{
+				margin-bottom: 10px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+				span{
+					display: inline-block;
+					font-weight: 600;
+					color: #171721;
+					min-width: 120px;
+				}
+			}
+		}
+		.bt-social{
+			margin-bottom: 30px;
+			ul li{
+				display: inline-block;
+				margin-left: 0;
+				margin-right: 3px;
+				&:last-child{
+					margin-right: 0;
+				}
+				a{
+					display: inline-block;
+					font-size: 12px;
+					width: 24px;
+					height: 24px;
+					line-height: 25px;
+					text-align: center;
+					color: #686876;
+					background: #dee0ec;
+					-webkit-border-radius: 50%;
+					border-radius: 50%;
+					&:hover{
+						color: #ffffff;
+						background: @main-color;
+					}
+				}
+			}
+		}
+	}
+}
