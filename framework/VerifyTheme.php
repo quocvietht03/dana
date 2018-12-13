@@ -65,34 +65,44 @@ class BearsthemesAPI {
      *
      * @return String || null
      */
-    function request($endpoint, $headers=array(), $curlParams=array()) {
-        $this->open();
-        if (empty($headers)) { $headers = array(); }
-        $url = $this->baseUrl . '/' . $endpoint;
-        if (!empty($curlParams)) {
-          $url = $url.'/?'. http_build_query($curlParams);
-        }
-        $cParams = array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => str_replace(
-                "\0",
-                "",
-                $url
-            ),
-            CURLOPT_USERAGENT => 'Bearsthemes',
-            CURLOPT_HTTPHEADER => $headers
-        );
-        try {
-            foreach (array_keys($cParams) as $param) {
-                if (empty($cParams[$param])) { continue; }
-                curl_setopt($this->session, $param, $cParams[$param]);
-            }
-            $resp = curl_exec($this->session);
-        } catch (Exception $e) {
-            return null;
-        }
-        return $resp;
-    }
+     function request($endpoint, $headers=array(), $curlParams=array()) {
+         if( !function_exists('curl_init') ){
+           $message = __('cURL Error: cURL is disable', 'lemonspa');
+           return json_encode(array( 'error' => $message ) );
+         }
+         $this->open();
+         if (empty($headers)) { $headers = array(); }
+         $url = $this->baseUrl . '/' . $endpoint;
+         if (!empty($curlParams)) {
+           $url = $url.'/?'. http_build_query($curlParams);
+         }
+         $cParams = array(
+             CURLOPT_RETURNTRANSFER => 1,
+             CURLOPT_URL => str_replace(
+                 "\0",
+                 "",
+                 $url
+             ),
+             CURLOPT_USERAGENT => 'Bearsthemes',
+             CURLOPT_HTTPHEADER => $headers
+         );
+         try {
+             foreach (array_keys($cParams) as $param) {
+                 if (empty($cParams[$param])) { continue; }
+                 curl_setopt($this->session, $param, $cParams[$param]);
+             }
+             $resp = curl_exec($this->session);
+             $curl_errno = curl_errno($this->session);
+             $curl_error = curl_error($this->session);
+             if ($curl_errno > 0) {
+                 $message = sprintf("%s (%s): %s \n", __('cURL Error', 'lemonspa'), $curl_errno, $curl_error);
+                 return json_encode(array( 'error' => $message ) );
+             }
+         } catch (Exception $e) {
+             return null;
+         }
+         return $resp;
+     }
 }
 // End BearsthemesAPI Class
 
@@ -100,6 +110,7 @@ if (!class_exists('EnvatoMarket')):
   class EnvatoMarket extends BearsthemesAPI {
 
     var $api_key;
+    var $message;
     function __construct($baseUrl='https://api.envato.com/v3/market') {
         parent::__construct($baseUrl);
     }
@@ -194,22 +205,25 @@ if (!class_exists('EnvatoMarket')):
      * @param String $item_id
      * @param String $purchase_code
      */
-    function getPurchaseInformation($purchase_code) {
-        $params = array(
-          'code' => $purchase_code
-        );
-        $response = $this->request(
-            "author/sale",
-            array(
-                "Authorization: Bearer $this->api_key"
-            ),
-            $params
-        );
-        if (empty($response)) { return null; }
-        $decoded = json_decode($response);
-        if (empty($decoded) || isset($decoded->error)) { return null; }
-        return $decoded;
-    }
+     function getPurchaseInformation($purchase_code) {
+         $params = array(
+           'code' => $purchase_code
+         );
+         $response = $this->request(
+             "author/sale",
+             array(
+                 "Authorization: Bearer $this->api_key"
+             ),
+             $params
+         );
+         if (empty($response)) { return null; }
+         $decoded = json_decode($response);
+         if (empty($decoded) || isset($decoded->error)) {
+           $this->message = $decoded->error;
+           return null;
+         }
+         return $decoded;
+     }
 
     /**
      * Check if purchase_code is valid.
@@ -557,7 +571,11 @@ class VerifyTheme {
                 'purchase_code' => $new_input['purchase_code'],
             );
         } else {
-            $message .= "Invalid purchase code<br />";
+            if($envato->message){
+              $message .= $envato->message;
+            }else{
+              $message .= "Invalid purchase code<br />";
+            }
         }
         $connected_domain = $communicator->getConnectedDomains( $new_input['purchase_code'] );
         $already_in_use = ! isInstallationLegit( $data );
