@@ -409,7 +409,7 @@ body input, body textarea, body select {
 }
 body input:hover, body input:focus, body textarea:hover, body textarea:focus, body select:hover, body select:focus { border-color:#dcdcdc; }
 body select {
-  background-image:url("assets/images/downwards-pointer.png");
+  background-image:url("../images/downwards-pointer.png");
   background-repeat:no-repeat;
   background-size:12px;
   background-position:center right 10px;

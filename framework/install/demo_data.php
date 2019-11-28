@@ -3,13 +3,13 @@ function dana_fw_ext_backups_demos($demos) {
     $demos_array = array(
 		'dana' => array(
 			'title' => esc_html__('Dana', 'dana'),
-			'screenshot' => 'http://bearsthemespremium.com/install/demo/dana/dana/screenshot.jpg',
-			'preview_link' => 'http://bearsthemespremium.com/theme/dana/',
+			'screenshot' => 'http://beplusthemes.com/install/demo/dana/dana/screenshot.jpg',
+			'preview_link' => 'http://dana.beplusthemes.com',
 		),
 		
     );
 
-    $download_url = 'http://bearsthemespremium.com/install/demo/dana/';
+    $download_url = 'http://beplusthemes.com/install/demo/dana/';
 
     foreach ($demos_array as $id => $data) {
         $demo = new FW_Ext_Backups_Demo($id, 'piecemeal', array(
