@@ -97,13 +97,6 @@ Redux::setSection( $opt_name, array(
 			'default'  => false,
 		),
 		array(
-			'id'       => 'smooth_scroll',
-			'type'     => 'switch',
-			'title'    => esc_html__( 'Smooth Scroll', 'dana' ),
-			'subtitle' => esc_html__( 'Use smooth scroll.', 'dana' ),
-			'default'  => false,
-		),
-		array(
 			'id'       => 'nice_scroll_bar',
 			'type'     => 'switch',
 			'title'    => esc_html__( 'Nice Scroll Bar', 'dana' ),

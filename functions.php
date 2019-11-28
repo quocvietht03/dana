@@ -57,12 +57,7 @@ if (!function_exists('dana_enqueue_scripts')) {
 			wp_enqueue_script( 'dana-app', get_template_directory_uri().'/assets/vendors/particles/app.min.js', array('jquery'), '', true);
 			wp_enqueue_style( 'dana-particles', get_template_directory_uri().'/assets/vendors/particles/particles.css', array(), false);
 		}
-
-		/* Smoth Scroll */
-		if(isset($dana_options['smooth_scroll'])&&$dana_options['smooth_scroll']){
-			wp_enqueue_script( 'dana-SmoothScroll', get_template_directory_uri().'/assets/js/SmoothScroll.js', array('jquery'), '', true);
-		}
-
+		
 		/* Nice Scroll Bar */
 		if(isset($dana_options['nice_scroll_bar'])&&$dana_options['nice_scroll_bar']){
 			wp_enqueue_script( 'dana-NiceScrollBar', get_template_directory_uri().'/assets/js/NiceScrollBar.js', array('jquery'), '', true);
