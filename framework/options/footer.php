@@ -253,7 +253,7 @@ Redux::setSection( $opt_name, array(
 			'letter-spacing'   => true,
 			'text-align'   => false,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#DCDCDC',
 				'font-size'   => '14px',
@@ -286,7 +286,7 @@ Redux::setSection( $opt_name, array(
 			'text-align'   => false,
 			'text-transform'   => true,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#FFFFFF',
 				'font-size'   => '18px',
@@ -401,7 +401,7 @@ Redux::setSection( $opt_name, array(
 			'letter-spacing'   => true,
 			'text-align'   => false,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#DCDCDC',
 				'font-size'   => '14px',
@@ -653,7 +653,7 @@ Redux::setSection( $opt_name, array(
 			'letter-spacing'   => true,
 			'text-align'   => false,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#686876',
 				'font-size'   => '14px',
@@ -686,7 +686,7 @@ Redux::setSection( $opt_name, array(
 			'text-align'   => false,
 			'text-transform'   => true,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#171721',
 				'font-size'   => '18px',
@@ -801,7 +801,7 @@ Redux::setSection( $opt_name, array(
 			'letter-spacing'   => true,
 			'text-align'   => false,
 			'ext-font-css' => get_template_directory().'/framework/options/fonts.css',
-			'fonts'  => $fonts,
+			'fonts'  => $fonts, 'google' => false,
 			'default'  => array(
 				'color'       => '#686876',
 				'font-size'   => '14px',
