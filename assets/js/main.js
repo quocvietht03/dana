@@ -275,6 +275,17 @@
 			});
 		}
 		DanaCountDownClock();
+
+		/* Copyright Current Year */
+		function DanaCopyrightCurrentYear() {
+			var searchTerm = '{Year}',
+				replaceWith = new Date().getFullYear();
+			
+			$('.bt-copyright').each( function() {
+				this.innerHTML = this.innerHTML.replace(searchTerm, replaceWith);
+			});
+		}
+		DanaCopyrightCurrentYear();
 		
         /* Plus Qty */
         $(document).on('click', '.qty-plus', function() {

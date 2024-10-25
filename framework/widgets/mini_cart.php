@@ -29,12 +29,16 @@ class dana_Widget_Mini_Cart extends WC_Widget {
 		if ( $hide_if_empty ) {
 			$wg_class .= ' hide_cart_widget_if_empty';
 		}
+
+		ob_start();
+			woocommerce_mini_cart();
+		$mini_cart_content = ob_get_clean();
 		
 		echo '<div class="'.esc_attr($wg_class).'">'
 		
-				.'<a class="bt-toggle-btn" title="'.esc_attr($instance['title']).'" href="#"><i class="fa fa-shopping-basket"></i><span class="cart_total" ></span></a>'
+				.'<a class="bt-toggle-btn" title="'.esc_attr($instance['title']).'" href="#"><i class="fa fa-shopping-basket"></i><span class="cart_total" >' . WC()->cart->get_cart_contents_count() . '</span></a>'
 				
-				.'<div class="bt-cart-content"><h3 class="bt-title">'.__('My Shopping Cart', 'dana').'</h3><div class="widget_shopping_cart_content"></div></div>'
+				.'<div class="bt-cart-content"><h3 class="bt-title">'.__('My Shopping Cart', 'dana').'</h3><div class="widget_shopping_cart_content">' . $mini_cart_content . '</div></div>'
 				
 			.'</div>';
 		

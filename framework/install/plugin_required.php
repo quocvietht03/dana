@@ -66,6 +66,7 @@ function dana_register_required_plugins() {
 		array(
 			'name'         => esc_html__('Unyson', 'dana'),
 			'slug'         => 'unyson',
+			'source'       => $root.'unyson.zip',
 			'required'     => true,
 		),
 		array(
